@@ -1,0 +1,40 @@
+git --version
+git config --global user.name "Amin Zahedi"
+git config --global user.email "zahediamin95@gmail.com"
+git config user.name
+git config user.email
+ls (List contents)
+ls Downloads/
+ls Downloads/Academic
+ls -a (all files including hidden files)
+cd (change directory)
+cd ~ (home directory)
+cd .. (back up one directory)
+open . (open the directory only on MAC)
+open Downloads/
+start . (open the directory only on Windows)
+start Downloads/
+clear
+pwd (print working directory - prints the path to the current directory)
+touch newFile.cpp newFile.txt newFile.pdf (create one/multiple files)
+touch Downloads/test.txt
+mkdir newFolder1 newFolder2 (create directories)
+rm File.txt (removing files/gone forever!/cannot delete directories)
+rm Downloads/File.pdf
+rm -rf (r=recursive/f=force/removes folders/gone forever!)
+git status (current status of the git repository) 
+git init (create a new repo)
+git add file1 file2 (adding files into the staging area/group them for commiting)
+git add . (stage all changes at once)
+git restore --staged file1 file2 (to unstage the files)
+git commit -m "message" (not suitable for a paragraph of message/only a line)
+git commit (opens VIM -> hit "i"-> write the commit message-> hit "esc" one time to exit insert mode -> :wq "write quite")
+git commit (opens an editor, write the message, save and close it)
+git log (use q to exit)
+git log --oneline
+git config --global core.editor "code --wait" (setting VSCODE as the editor)
+if it shows code: command not found => Open comman pallet in VSCODE "control shift P"=> type "code" => install code command in path
+git config core.editor (check the editor)
+git commit --amend (only redo the previous commit/the tip of the current branch)
+.gitignore (files or directories Git would ignore in a givven repo/secrets/API keys, credentials, operating system files, log files, dependencies and packages/at root of the directory)
+git branch (view existing branches)
