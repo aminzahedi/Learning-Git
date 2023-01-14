@@ -1,8 +1,11 @@
+\\\\\\\\\\\\\\\\\\\\\\\setting git credentials and isntallation///////////////////////
 git --version
 git config --global user.name "Amin Zahedi"
 git config --global user.email "zahediamin95@gmail.com"
 git config user.name
 git config user.email
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\some usefull terminal commands/////////////////////////////
 ls (List contents)
 ls Downloads/
 ls Downloads/Academic
@@ -22,13 +25,18 @@ mkdir newFolder1 newFolder2 (create directories)
 rm File.txt (removing files/gone forever!/cannot delete directories)
 rm Downloads/File.pdf
 rm -rf (r=recursive/f=force/removes folders/gone forever!)
+code . (opens VSCode)
+
+\\\\\\\\\\\\\\\\\\\\\\\\\Creating repos and staging the changes/////////////////////
 git status (current status of the git repository) 
 git init (create a new repo)
-git add [file1] [file2] (adding files into the staging area/group them for commiting)
+git add [file1] [file2] (adding files into the staging area/group them for committing)
 git add . (stage all changes at once)
 git restore --staged [file1] [file2] (to unstage the files)
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\Committing changes//////////////////////////////////////////
 git commit -m "message" (not suitable for a paragraph of message/only a line)
-git commit -a -m (commiting all unstaged changes/no need git add)
+git commit -a -m (committing all unstaged changes/no need git add)
 git commit (opens VIM -> hit "i"-> write the commit message-> hit "esc" one time to exit insert mode -> :wq "write quite")
 git commit (opens an editor, write the message, save and close it)
 git log (use q to exit)
@@ -38,18 +46,24 @@ if it shows code: command not found => Open comman pallet in VSCODE "control shi
 git config core.editor (check the editor)
 git commit --amend (only redo the previous commit/the tip of the current branch)
 .gitignore (files or directories Git would ignore in a givven repo/secrets/API keys, credentials, operating system files, log files, dependencies and packages/at root of the directory)
+
+\\\\\\\\\\\\\\\\\\\\\\\\\Branching and Merging//////////////////////////////////////
 git branch (view existing branches/the active branch has *)
 git branch -v (view existing branches with more details of hashes and commit messages)
 git branch [branch-name] (create branch/shouldnt have a space in the name)
 git branch -d/--delete [branch-name] (deleting a branch/ cant delete the branch checked out at)
 git branch -D [branch-name] (--delete --force/ would delte before even merging)
 git branch -m [new name] (rename the branch/ have to be on the branch)
-(Head always pointing to the tip of the last commit)
+(Head always points to a branch and the branch points to its last commit)
+cat .git/HEAD (refs/head/master-or any other branch name)
+cat .git/refs/head/master-or any other branch name (shows the hash of the last commit for that branch)
 git switch [branch-name] (switch to another branch)
 git switch -c [branch-name] (create and switch at the same time)
 git checkout [branch-name] (switch to another branch)
 git checkout -b [branch-name] (create and switch at the same time)
 git merge [branch-name] (should be at the destination branch and merge the other branch)
+
+\\\\\\\\\\\\\\\\\\\\\\\\\Diffing////////////////////////////////////////////////////
 git diff (changes in the working directory that are not staged; viewing unstaged changes)
 git diff HEAD (list all the changes in the working directory since the last commit; since HEAD; staged and unstaged changes)
 git diff --staged (shows only staged changes)
@@ -57,14 +71,30 @@ git diff --cached (shows only staged changes)
 git diff HEAD/--staged [file name] [file name] (only consider a file)
 git diff HEAD HEAD~1 (changes from previous commit and current commit)
 git diff HEAD~1 (swaping the previous and current commits to look)
-git diff [branch 1]..[branch 2] (all the files that committed;also can narrow it down to a specific file)
+git diff [branch 1]..[branch 2] (all the files that comitted;also can narrow it down to a specific file)
 git diff [commit 1]..[commit 2] (using short hashes/git log --oneline)
-code . (opens VSCode)
-git stash/ git stash save (take all uncomitted changes - staged or unstaged- and stash them, reverting the changes in the working copy)
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\Stashing////////////////////////////////////////////////
+git stash/ git stash save (take all uncommitted changes - staged or unstaged- and stash them, reverting the changes in the working copy)
 git stash pop (would remove the most recently stashed changes in the stash and re-apply them to the working copy)
-git stash apply (apply the changes that are stashed without removing them from stash)
-(can apply stash on another branch, it may show conflicts like merge conlicts which need to solve)
+git stash apply (apply the changes that are stashed without removing them from stash/ can apply stash on another branch, it may show conflicts like merge conlicts which need to solve)
 git stash list (can stash multiple times/ "stash list" shows the list of stashes in order)
 git stash apply stash@{ID} (would apply the changes for the stash with the selected ID; newer stashes have lower IDs)
 git stash drop stash@{ID} (remove a particular stash)
 git stash clear (empty out the whole list)
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\Time Travel; Undoing the changes////////////////////////
+git chechout commit<commit hash> (first 7 characters of the hash would be enough; creates a detached HEAD; with git status you can see HEAD is detached)
+cat .git/HEAD (shows the hash of the commit that it is pointing at/can create a new branch out of the detached HEAD and have commits)
+git checkout master- or any other branch (re-attaching the HEAD to the working branch)
+git checkout HEAD~1 (refers to the commit before HEAD-parent/just detaching HEAD, cannot commit yet)
+git checkout HEAD~2 (refers to 2 commits before HEAD-grandparent/ just detaching HEAD, cannot commit yet)
+git switch - (this also take the HEAD to the current branch that we are at)
+git checkout HEAD [file name] (discard the new changes and bring the files from last commit; HEAD stil pointing to the last commit of the current branch)
+git checkout -- [file name] 
+(checkout is the older command in which it does a lot of thing; however, switch and restore are newer commands which do some tasks of the checkout command)
+git restore [file name] (to restore the files to the contents in the HEAD/ the command is undoable, the uncommitted changes will be lost)
+git restore --source HEAD~1 [file name] (changing the default from HEAD to prior commits)
+git restore --source commit<commit hash> [file name] (changing the default from HEAD to prior commits)
+(we are still at the location of last commit with the content of the selected commit (no detached HEAD or time travel) so git shows the file as an unstage change, we can make a commit at this point or we can use git restore [file name] to again be at the last commit)
+git reset <commit hash> (regular reset)
