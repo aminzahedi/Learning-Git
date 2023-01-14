@@ -50,4 +50,4 @@ git switch -c branch-name (create and switch at the same time)
 git checkout branch-name (switch to another branch)
 git checkout -b branch-name (create and switch at the same time)
 git merge branch-name (should be at the destination branch and merge the other branch)
-test
+
