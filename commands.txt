@@ -97,4 +97,8 @@ git restore [file name] (to restore the files to the contents in the HEAD/ the c
 git restore --source HEAD~1 [file name] (changing the default from HEAD to prior commits)
 git restore --source commit<commit hash> [file name] (changing the default from HEAD to prior commits)
 (we are still at the location of last commit with the content of the selected commit (no detached HEAD or time travel) so git shows the file as an unstage change, we can make a commit at this point or we can use git restore [file name] to again be at the last commit)
-git reset <commit hash> (regular reset)
+git reset <commit hash> (regular reset; we dont lose the changes, the command move them to the working directory or unstaged them; however, we lose the commits)
+git reset --hard <commit hash> (hard reset/lose commits and changes; no more changes in the working directory)
+git revert (unlike reset which actually moves branch pointer backwards and eliminates commits, revert creats a brand new commit which reverses the changes from a commit- it asks for a commit message)
+
+make a bad commit
