@@ -102,3 +102,4 @@ git reset --hard <commit hash> (hard reset/lose commits and changes; no more cha
 git revert (unlike reset which actually moves branch pointer backwards and eliminates commits, revert creats a brand new commit which reverses the changes from a commit- it asks for a commit message)
 
 make a bad commit
+make a bad commit again
