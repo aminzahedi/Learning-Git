@@ -21,6 +21,7 @@ clear
 pwd (print working directory - prints the path to the current directory)
 touch newFile.cpp newFile.txt newFile.pdf (create one/multiple files)
 touch Downloads/test.txt
+mv [file name] <new name> (renaming a file)
 mkdir newFolder1 newFolder2 (create directories)
 rm File.txt (removing files/gone forever!/cannot delete directories)
 rm Downloads/File.pdf
@@ -100,5 +101,3 @@ git restore --source commit<commit hash> [file name] (changing the default from 
 git reset <commit hash> (regular reset; we dont lose the changes, the command move them to the working directory or unstaged them; however, we lose the commits)
 git reset --hard <commit hash> (hard reset/lose commits and changes; no more changes in the working directory)
 git revert (unlike reset which actually moves branch pointer backwards and eliminates commits, revert creats a brand new commit which reverses the changes from a commit- it asks for a commit message)
-
-make a bad commit
