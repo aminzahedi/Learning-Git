@@ -37,7 +37,7 @@ git restore --staged [file1] [file2] (to unstage the files)
 
 \\\\\\\\\\\\\\\\\\\\\\\\\\Committing changes//////////////////////////////////////////
 git commit -m "message" (not suitable for a paragraph of message/only a line)
-git commit -a -m (committing all unstaged changes/no need git add)
+git commit -a -m (committing all unstaged changes/no need git add/new files you have not told Git about are not affected)
 git commit (opens VIM -> hit "i"-> write the commit message-> hit "esc" one time to exit insert mode -> :wq "write quite")
 git commit (opens an editor, write the message, save and close it)
 git log (use q to exit)
@@ -55,6 +55,7 @@ git branch [branch-name] (create branch/shouldnt have a space in the name)
 git branch -d/--delete [branch-name] (deleting a branch/ cant delete the branch checked out at)
 git branch -D [branch-name] (--delete --force/ would delte before even merging)
 git branch -m [new name] (rename the branch/ have to be on the branch)
+git branch -M main (change master branch to main branch)
 (Head always points to a branch and the branch points to its last commit)
 cat .git/HEAD (refs/head/master-or any other branch name)
 cat .git/refs/head/master-or any other branch name (shows the hash of the last commit for that branch)
@@ -106,3 +107,10 @@ git revert (unlike reset which actually moves branch pointer backwards and elimi
 git clone <url> (cloning a repo into the local machine)
 SSH Key (connecting to Github without supplyinh username password)
 ls -al ~/.ssh (find if the SSH key is set or not)
+git remote (to view any existing remotes for the repository/displaying a list of remotes)
+git remote -v (to view any existing remotes for the repository/displaying a list of remotes)
+git remote add <name> <url> (Add a new remote)
+Origin (a conventional Git remote name, nothing specific about it! Just a name for a URL; when we clone a repo, the default remote name is Origin. It can be changed)
+git remote rename <old> <new>
+git remote remove <name>
+git push <remote> <branch>/ git push origin master
